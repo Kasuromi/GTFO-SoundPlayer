@@ -1,0 +1,24 @@
+﻿<Project InitialTargets="ValidateGamePath">
+  <Target Name="ValidateGamePath">
+    <Error Text="The GameFolder property must be set to the GTFO game folder." Condition="'$(GameFolder)' == '' or !Exists('$(GameFolder)')" />
+  </Target>
+
+  <PropertyGroup>
+    <GameFolder>D:\Games\Steam\steamapps\common\GTFO</GameFolder>
+    <BIELibsFolder>$(GameFolder)/BepInEx/core</BIELibsFolder>
+    <MonoLibsFolder>$(GameFolder)/mono/Managed</MonoLibsFolder>
+    <UnhollowedLibsFolder>$(GameFolder)/BepInEx/unhollowed</UnhollowedLibsFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="$(BIELibsFolder)/BepInEx.*.dll" Private="false" />
+    <Reference Include="$(BIELibsFolder)/0Harmony.dll" Private="false" />
+    <Reference Include="$(BIELibsFolder)/UnhollowerBaseLib.dll" Private="false" />
+    <Reference Include="$(BIELibsFolder)/UnhollowerRuntimeLib.dll" Private="false" />
+    <Reference Include="$(MonoLibsFolder)/Microsoft.Bcl.AsyncInterfaces.dll" Private="false" />
+    <Reference Include="$(MonoLibsFolder)/System.Text.Json.dll" Private="false" />
+    <Reference Include="$(UnhollowedLibsFolder)/*.dll" Private="false" />
+    <Reference Remove="$(UnhollowedLibsFolder)/netstandard.dll" />
+    <Reference Remove="$(UnhollowedLibsFolder)/Newtonsoft.Json.dll" />
+  </ItemGroup>
+</Project>
