@@ -8,7 +8,7 @@ namespace SoundPlayer
 {
     [BepInPlugin("com.kasuromi.soundplayer", "SoundPlayer", VERSION)]
     public class SoundPlayerPlugin : BasePlugin {
-        public const string VERSION = "1.0.2";
+        public const string VERSION = "1.0.3";
         public override void Load() {
             ClassInjector.RegisterTypeInIl2Cpp<SoundPlayerScript>();
 

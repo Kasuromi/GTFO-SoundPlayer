@@ -16,6 +16,7 @@ namespace SoundPlayer
             GameObject gameObj = new GameObject();
             gameObj.AddComponent<SoundPlayerScript>();
             UnityEngine.Object.DontDestroyOnLoad(gameObj);
+            _injected = true;
         }
     }
 }
